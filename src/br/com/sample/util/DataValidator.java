@@ -1,18 +1,15 @@
 package br.com.sample.util;
 
-public class DataValidator implements Validator {
-	
-	private DataValidator(DataFormatType dataFormatType) {
-		
-	}
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-	public DataValidator getInstance(DataFormatType dataFormatType) {
-		return new DataValidator(dataFormatType);
-	}
+public class DataValidator implements IDataValidator {
 
 	@Override
-	public boolean validate(String data, Validator pattern) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean validate(String data, DataFormatType dataFormatType) {
+		Pattern pattern = Pattern.compile(dataFormatType.getDataPattern());
+		Matcher matcher = pattern.matcher(data);
+		
+		return matcher.find();
 	}
 }
