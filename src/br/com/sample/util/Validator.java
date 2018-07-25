@@ -8,14 +8,14 @@ public class Validator {
 	}
 	
 	public boolean validCpf(String cpf) {
-		return this.dataValidator.validate(cpf, DataFormatType.CPF);
+		return this.dataValidator.validate(cpf, DataFormatPattern.CPF);
 	}
 	
 	public boolean validRg(String rg) {
-		return this.dataValidator.validate(rg, DataFormatType.RG);
+		return this.dataValidator.validate(rg, DataFormatPattern.RG);
 	}
 	
 	public boolean validPhoneNumber(String phoneNumber) {
-		return this.dataValidator.validate(phoneNumber, DataFormatType.PHONE_NUMBER);
+		return this.dataValidator.validate(phoneNumber, DataFormatPattern.PHONE_NUMBER);
 	}
 }

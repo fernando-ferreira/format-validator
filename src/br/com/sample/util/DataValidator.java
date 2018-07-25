@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 public class DataValidator implements IDataValidator {
 
 	@Override
-	public boolean validate(String data, DataFormatType dataFormatType) {
-		Pattern pattern = Pattern.compile(dataFormatType.getDataPattern());
+	public boolean validate(String data, DataFormatPattern dataFormatPattern) {
+		Pattern pattern = Pattern.compile(dataFormatPattern.getDataPattern());
 		Matcher matcher = pattern.matcher(data);
 		
 		return matcher.find();
