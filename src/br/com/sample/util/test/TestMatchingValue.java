@@ -3,26 +3,32 @@ package br.com.sample.util.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
+import org.junit.Test;
+
+import junit.framework.Assert;
+
 import br.com.sample.util.Matcher;
 
 public class TestMatchingValue {
-	private static final List<String> nameList = new ArrayList<String>();
+	private List<String> nameList;
 	
-	static {
-		nameList.add("Fernando");
-        nameList.add("Milena Balzano");
-        nameList.add("Kaua Belo");
-        nameList.add("Fernando Ferreira");
+	@Before
+	public void PrepareListToMatcher() {
+		this.nameList = new ArrayList<String>();
+		
+		this.nameList.add("John");
+		this.nameList.add("Charlie");
+		this.nameList.add("Bob");
 	}
 	
-	public static void main(String[] args) {
-		String word = "Fernando";
+	@Test
+	public void GivenValidName_MatcherWorksCorrectly() {
+		String name = "Charlie";
 		
-		List<String> foundItems = Matcher.matchValue(nameList, word);
+		List<String> foundName = Matcher.matchValue(nameList, name);
 		
-		for (String name: foundItems) {
-			System.out.println("Found item into the list: " + name);
-		}
+		Assert.assertEquals(name, foundName.get(0));
 	}
 
 }

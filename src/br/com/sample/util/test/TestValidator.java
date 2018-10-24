@@ -1,31 +1,25 @@
 package br.com.sample.util.test;
 
+import org.junit.Test;
+
 import br.com.sample.util.Validator;
+import junit.framework.Assert;
 
 public class TestValidator {
-	public static void main(String[] args) {
+	
+	@Test
+	public void GivenCorrectData_MatcherIdentifyCorrectPattern() {
+		
 		String CPF   = "333.333.333-33";
 		String RG    = "44.444.444-4";
 		String PHONE = "5555-5555";
 		
 		Validator validator = new Validator();
 		
-		if (validator.validCpf(CPF)) {
-			System.out.println("CPF is correct");
-		} else {
-			System.out.println("CPF is not correct");
-		}
+		Assert.assertTrue(validator.validCpf(CPF));
 		
-		if (validator.validRg(RG)) {
-			System.out.println("RG is correct");
-		} else {
-			System.out.println("RG is not correct");
-		}
+		Assert.assertTrue(validator.validRg(RG));
 		
-		if (validator.validPhoneNumber(PHONE)) {
-			System.out.println("Phone number is correct");
-		} else {
-			System.out.println("Phone number is not correct");
-		}
+		Assert.assertTrue(validator.validPhoneNumber(PHONE));
 	}
 }
